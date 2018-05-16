@@ -17,7 +17,9 @@ export class ListagemClientesComponent implements OnInit {
     public clientes: Cliente[] = [];
     public cliente: Cliente = new Cliente();
     public status: string = Status.Novo;
-    public tituloModal : string = "Cadastro";
+    public tituloModal: string = "Cadastro";
+    public file: File;
+    public imagem: any;
 
     constructor(private clienteService: ClienteService) {
 
@@ -31,8 +33,17 @@ export class ListagemClientesComponent implements OnInit {
         if (cliente.id) {
             this.editar(cliente);
         } else {
-            this.clienteService.post(cliente).subscribe(() => {
-                this.buscarTodos();
+            this.clienteService.post(cliente).subscribe((resp) => {
+                this.cliente = resp;
+                if (this.file) {
+                    this.clienteService.uploadImagem(this.file, this.cliente.id).subscribe(() => {
+                        this.buscarTodos();
+                        this.fecharModal();
+                    });
+                } else {
+                    this.buscarTodos();
+                    this.fecharModal();
+                }
             });
         }
     }
@@ -47,6 +58,8 @@ export class ListagemClientesComponent implements OnInit {
     public buscarTodos(): void {
         this.clienteService.getAll().subscribe(clientes => {
             this.clientes = clientes;
+            this.tratarImagensClientes();
+            //this.buscarImagem();
         });
     }
 
@@ -74,11 +87,45 @@ export class ListagemClientesComponent implements OnInit {
         })
     }
 
+    public novoCliente(): void {
+        this.cliente = new Cliente();
+        this.status = Status.Novo;
+        this.tituloModal = `Novo`;
+        this.abrirModal();
+    }
+    public loadFile(file: File): void {
+        this.file = file;
+    }
+
     private abrirModal(): void {
         $('#modal-cadastro').modal("show");
     }
 
     private fecharModal(): void {
         $('#modal-cadastro').modal("hide");
+    }
+
+    private tratarImagensClientes(): void {
+        this.clientes.forEach(cliente => {
+            if (cliente.foto) {
+                this.buscarImagem(cliente.foto,cliente);
+            }
+        });
+    }
+
+    private buscarImagem(foto : string, cliente :Cliente) {
+        this.clienteService.downloadImagem(foto).subscribe(res => {
+           this.createImageFromBlob(res,cliente);
+        });
+    }
+
+    createImageFromBlob(image: Blob,cliente : Cliente) {
+        let reader = new FileReader();
+        reader.addEventListener("load", () => {
+            cliente.fileImage = reader.result;
+        }, false);
+        if (image) {
+            reader.readAsDataURL(image);
+        }
     }
 }

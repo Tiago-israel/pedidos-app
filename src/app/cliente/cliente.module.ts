@@ -1,3 +1,4 @@
+import { UploadFileComponent } from './../components/upload-file.component';
 import { CadastroClienteComponent } from './components/cadastro-cliente/cadastro-cliente.component';
 
 import { BrowserModule } from "@angular/platform-browser";
@@ -10,7 +11,8 @@ import {FormsModule} from '@angular/forms';
 @NgModule({
     declarations: [
       ListagemClientesComponent,
-      CadastroClienteComponent
+      CadastroClienteComponent,
+      UploadFileComponent
     ],
     imports: [
       BrowserModule,

@@ -10,6 +10,10 @@
                 <input type="email" class="form-control" [disabled]="status == 'detalhes'" name="email" [(ngModel)]="cliente.email" />
             </div>
             <div class="form-group">
+                <label>Foto</label>
+                <upload-file (uploadFile)="onLoadFile($event)"></upload-file>
+            </div>
+            <div class="form-group">
                 <input *ngIf="status != 'detalhes'" type="button" (click)="salvar()" class="btn btn-success btn-block" value="Salvar" />
             </div>
         </form>
