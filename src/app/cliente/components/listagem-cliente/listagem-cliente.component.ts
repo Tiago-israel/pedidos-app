@@ -58,7 +58,7 @@ export class ListagemClientesComponent implements OnInit {
     public buscarTodos(): void {
         this.clienteService.getAll().subscribe(clientes => {
             this.clientes = clientes;
-            this.tratarImagensClientes();
+           // this.tratarImagensClientes();
             //this.buscarImagem();
         });
     }

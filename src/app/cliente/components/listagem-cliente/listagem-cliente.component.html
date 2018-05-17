@@ -21,7 +21,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let cliente of clientes">
-                                <td><img [src]="cliente.fileImage" alt="perfil" style="max-height: 60px;max-width: 60px;" class="img-responsive img-rounded"/></td>
+                                <td><img [src]="'data:image/jpg;base64,'+cliente.file" alt="perfil" style="max-height: 60px;max-width: 60px;" class="img-responsive img-rounded"/></td>
                                 <td>{{cliente.nome}}</td>
                                 <td>{{cliente.email}}</td>
                                 <td>

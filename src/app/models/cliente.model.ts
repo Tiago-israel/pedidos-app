@@ -5,4 +5,5 @@ export class Cliente extends modelo{
     public email : string;
     public foto : string;
     public fileImage : any;
+    public file : string;
 }
