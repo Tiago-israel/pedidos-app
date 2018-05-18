@@ -2,7 +2,7 @@ import { Http } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map'
 
-export abstract class BaseService<T>{
+export abstract class BaseHttpService<T>{
 
     protected baseUrl: string = "http://localhost:60996/api";
     protected resource: string;

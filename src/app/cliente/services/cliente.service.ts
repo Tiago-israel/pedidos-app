@@ -2,10 +2,10 @@ import { Observable } from 'rxjs/Observable';
 import { Http, ResponseContentType } from '@angular/http';
 import { Injectable } from "@angular/core";
 import { Cliente } from '../../shared/models/cliente.model';
-import { BaseService } from '../../shared/services/base-service';
+import { BaseHttpService } from '../../shared/services/base-http-service';
 
 @Injectable()
-export class ClienteService extends BaseService<Cliente>{
+export class ClienteService extends BaseHttpService<Cliente>{
 
     constructor(public http: Http) {
         super(http, "Clientes");

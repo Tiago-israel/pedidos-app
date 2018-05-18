@@ -19,7 +19,6 @@ export class CadastroClienteComponent implements OnInit {
     constructor(private clienteService: ClienteService) { }
 
     ngOnInit(): void {
-        console.log(this.cliente);
     }
 
     public onLoadFile(file: File): void {

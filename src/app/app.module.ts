@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { LoadingService } from './shared/services/loading.service';
+import { ProdutoModule } from './produto/produto.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LoadingService } from './shared/services/loading.service';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    ClienteModule
+    ClienteModule,
+    ProdutoModule
   ],
   providers:[
     LoadingService
