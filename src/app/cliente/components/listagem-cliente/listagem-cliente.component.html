@@ -21,7 +21,10 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let cliente of clientes">
-                                <td><img [src]="'data:image/jpg;base64,'+cliente.file" alt="perfil" style="max-height: 60px;max-width: 60px;" class="img-responsive img-rounded"/></td>
+                                <td>
+                                    <img [src]="'data:image/jpg;base64,'+cliente.file" alt="perfil" style="max-height: 60px;max-width: 60px;"
+                                        class="img-responsive img-rounded" />
+                                </td>
                                 <td>{{cliente.nome}}</td>
                                 <td>{{cliente.email}}</td>
                                 <td>
@@ -48,7 +51,7 @@
                 <h4 class="modal-title">{{tituloModal}} cliente</h4>
             </div>
             <div class="modal-body">
-                <cadastro-cliente (file)="loadFile($event)" (clienteForm)="salvar($event)" [status]="status" [cliente]="cliente"></cadastro-cliente>
+                <cadastro-cliente #cadastroCliente (file)="loadFile($event)" (clienteForm)="salvar($event)" [status]="status" [cliente]="cliente"></cadastro-cliente>
             </div>
             <div class="modal-footer">
                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

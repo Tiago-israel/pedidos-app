@@ -1,5 +1,3 @@
-import { Cliente } from './models/cliente.model';
-import { ClienteService } from './services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,7 +12,5 @@ export class AppComponent implements OnInit{
   }
 
   title = 'app';
-
-  constructor(private clienteService : ClienteService){}
 
 }

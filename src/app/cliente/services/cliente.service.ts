@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs/Observable';
 import { Http, ResponseContentType } from '@angular/http';
-import { Cliente } from './../models/cliente.model';
 import { Injectable } from "@angular/core";
-import { BaseService } from "./base-service";
+import { Cliente } from '../../shared/models/cliente.model';
+import { BaseService } from '../../shared/services/base-service';
 
 @Injectable()
 export class ClienteService extends BaseService<Cliente>{

@@ -7,7 +7,6 @@ import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular
 })
 export class UploadFileComponent {
 
-    @ViewChild('seletorArquivo') seletorArquivo: any;
     @Output("uploadFile") onFileUploaded: EventEmitter<File> = new EventEmitter<File>();
 
     public file: File;

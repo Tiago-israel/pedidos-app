@@ -1,12 +1,13 @@
-import { UploadFileComponent } from './../components/upload-file.component';
+import { ClienteRoutingModule } from './cliente.routing.module';
 import { CadastroClienteComponent } from './components/cadastro-cliente/cadastro-cliente.component';
 
-import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
-import { ClienteService } from "../services/cliente.service";
 import { NgModule } from "@angular/core";
 import { ListagemClientesComponent } from "./components/listagem-cliente/listagem-cliente.component";
 import {FormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ClienteService } from './services/cliente.service';
+import { UploadFileComponent } from '../shared/components/upload/upload-file.component';
 
 @NgModule({
     declarations: [
@@ -15,15 +16,13 @@ import {FormsModule} from '@angular/forms';
       UploadFileComponent
     ],
     imports: [
-      BrowserModule,
+      CommonModule,
       HttpModule,
-      FormsModule
+      FormsModule,
+      ClienteRoutingModule
     ],
     providers: [
       ClienteService
-    ],
-    exports:[
-        ListagemClientesComponent
     ]
   })
   export class ClienteModule { }

@@ -1,9 +1,10 @@
+import { CadastroClienteComponent } from './../cadastro-cliente/cadastro-cliente.component';
 
-import { Component, OnInit } from "@angular/core";
-import { Cliente } from "../../../models/cliente.model";
-import { ClienteService } from "../../../services/cliente.service";
-import { Status } from "../../../enums/status.enum";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Subscriber } from "rxjs/Subscriber";
+import { Cliente } from '../../../shared/models/cliente.model';
+import { Status } from '../../../shared/enums/status.enum';
+import { ClienteService } from '../../services/cliente.service';
 
 declare var $: any;
 
@@ -13,6 +14,8 @@ declare var $: any;
     styleUrls: ['./listagem-cliente.component.css']
 })
 export class ListagemClientesComponent implements OnInit {
+
+    @ViewChild("cadastroCliente")public cadastroClienteComponent : CadastroClienteComponent;
 
     public clientes: Cliente[] = [];
     public cliente: Cliente = new Cliente();
