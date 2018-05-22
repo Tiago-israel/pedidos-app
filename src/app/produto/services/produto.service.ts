@@ -6,6 +6,6 @@ import { BaseHttpService } from "../../shared/services/base-http-service";
 @Injectable()
 export class ProdutoService extends BaseHttpService<Produto>{
     constructor(public http : Http){
-        super(http,"Produto");
+        super(http,"produto");
     }
 }

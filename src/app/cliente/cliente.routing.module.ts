@@ -4,7 +4,7 @@ import { Routes } from '@angular/router';
 import { ListagemClientesComponent } from './components/listagem-cliente/listagem-cliente.component';
 
 const clientesRoutes: Routes = [
-    { path: 'clientes', component: ListagemClientesComponent }
+    { path: '', component: ListagemClientesComponent }
 ]
 
 @NgModule({
